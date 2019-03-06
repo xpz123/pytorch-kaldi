@@ -22,9 +22,12 @@ import re
 from distutils.util import strtobool
 import importlib
 import math
+import pdb
 
 # Reading global cfg file (first argument-mandatory file) 
-cfg_file=sys.argv[1]
+
+#cfg_file=sys.argv[1]
+cfg_file=r'cfg/21century_LSTM_mfcc.cfg'
 if not(os.path.exists(cfg_file)):
      sys.stderr.write('ERROR: The config file %s does not exist!\n'%(cfg_file))
      sys.exit(0)
@@ -50,7 +53,6 @@ log_file=config['exp']['out_folder']+'/log.log'
 # Read, parse, and check the config file     
 cfg_file_proto=config['cfg_proto']['cfg_proto']
 [config,name_data,name_arch]=check_cfg(cfg_file,config,cfg_file_proto)
-
 
 # Read cfg file options
 is_production=strtobool(config['exp']['production'])
@@ -84,10 +86,12 @@ run_nn=getattr(module, run_nn_script)
          
          
 # Splitting data into chunks (see out_folder/additional_files)
-create_lists(config)
+#create_lists(config)
+
+#pdb.set_trace()
 
 # Writing the config files
-create_configs(config)  
+#create_configs(config)  
 
 print("- Chunk creation......OK!\n")
 

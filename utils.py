@@ -20,7 +20,7 @@ import torch.nn as nn
 import torch.optim as optim
 import math
 
-
+import pdb
 
 def run_command(cmd):
     """from http://blog.kagesenshi.org/2008/02/teeing-python-subprocesspopen-output.html
@@ -1780,6 +1780,8 @@ def forward_model(fea_dict,lab_dict,arch_dict,model,nns,costs,inp,inp_out_dict,m
     # Forward Step
     outs_dict={}
     pattern='(.*)=(.*)\((.*),(.*)\)'
+
+    #pdb.set_trace()
     
     # adding input features to out_dict:
     for fea in fea_dict.keys():
